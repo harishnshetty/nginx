@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent host
 
     environment {
         IMAGE_NAME = 'custom-nginx'
