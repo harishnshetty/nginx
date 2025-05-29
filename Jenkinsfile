@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "pwd"
+                    sh "docker build -t ${IMAGE_NAME} ."
                     sh "ls -lart"
                 }
             }
