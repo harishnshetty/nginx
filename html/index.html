@@ -1,406 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harish N</title>
 
-	<title>Soft Landing Page by Tooplate</title>
-	<!--
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
 
-    Template 2106 Soft Landing
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
-	http://www.tooplate.com/view/2106-soft-landing
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      border: none;
+      outline: 0;
+      text-decoration: none;
+      color: white;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(-45deg, #667eea, #764ba2, #667eea, #764ba2);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 0 10%;
+    }
 
-    -->
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="team" content="">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/owl.carousel.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
+    #header, nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      z-index: 1;
+    }
 
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/tooplate-style.css">
+    .nav-item {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-left: 60px;
+      transition: color 0.12s, transform 0.12s;
+    }
 
+    nav .active,
+    .nav-item:hover {
+      color: #3FA2F6;
+    }
+
+    .nav-item:active {
+      transform: scale(1.1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    /* Hide the menu toggle (hamburger icon) on desktop */
+    .menu-toggle {
+      font-size: 1.8rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+    }
+
+    /* Display hamburger icon only on mobile screens */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block; /* Show on mobile */
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none; /* Hide on desktop */
+      }
+    }
+
+    #hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .hero-left {
+      display: flex;
+      align-items: center;
+      padding-top: 10px;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      padding: 25px 0;
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+
+    h3 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #3FA2F6;
+      padding-bottom: 40px;
+      animation: fadeIn 1.4s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.4s;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: lightgray;
+      line-height: 1.5;
+      padding-bottom: 50px;
+      animation: fadeIn 1.6s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.6s;
+    }
+
+    button {
+      color: black;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 15px 0;
+      width: 200px;
+      border: none;
+      border-radius: 8px;
+      margin-right: 50px;
+      margin-bottom: 180px;
+      background-color: #3FA2F6;
+      transition: background-color 0.12s, border 0.12s, color 0.21s, padding 0.12s;
+      animation: fadeIn 1.8s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.8s;
+    }
+
+    .cta-1:hover {
+      background-color: transparent;
+      color: #3FA2F6;
+      border: 2px solid #3FA2F6;
+      padding: 13px 0;
+    }
+
+    .cta-2 {
+      background-color: transparent;
+      color: #3FA2F6;
+      border: 2px solid #3FA2F6;
+      padding: 13px 0;
+    }
+
+    .cta-2:hover {
+      background-color: #3FA2F6;
+      color: black;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding-bottom: 50px;
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+      animation-delay: 1s;
+    }
+
+    .social-icon i {
+      font-size: 1.2rem;
+      color: #3FA2F6;
+      border: 1px solid #3FA2F6;
+      border-radius: 50px;
+      padding: 8px;
+      height: 25px;
+      width: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.12s, box-shadow 0.12s;
+      cursor: pointer;
+    }
+
+    .social-icon i:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #3FA2F6;
+    }
+
+    .hero-right {
+      background: url('image.png') no-repeat center center/contain;
+      background-size: 70%;
+      background-position: top center;
+      min-height: 400px;
+      transition: all 0.5s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hero-right {
+        display: none; /* Hide image on mobile screens */
+      }
+    }
+
+    .hero-right.hide {
+      display: none;
+    }
+
+    .hero-right.show {
+      display: block;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInTop {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .nav-item,
+    .left-section {
+      animation: fadeInTop 1s ease-in forwards;
+      opacity: 0;
+    }
+
+    .typed-text {
+      font-size: 0.875rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      animation: typing 4s steps(30, end) infinite, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      0% { width: 0 }
+      50% { width: 100% }
+      100% { width: 0 }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 15px;
+      position: absolute;
+      top: 70px;
+      right: 5%;
+      width: 60%;
+      z-index: 100;
+      border-radius: 10px;
+      box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.4);
+      animation: slideInRight 0.3s ease-out forwards;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    .menu-item {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    .menu-item:hover {
+      color: #3FA2F6;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 0 5%;
+      }
+
+      #hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 0;
+      }
+
+      .hero-left {
+        padding-top: 10px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+        word-break: break-word;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        padding-bottom: 30px;
+      }
+
+      .cta {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      button {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .social-icon {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .hero-right {
+        min-height: 250px;
+        background-size: contain;
+        background-position: center top;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header id="header">
+    <div class="left-section" style="display: flex; align-items: center; gap: 15px;">
+      <a class="logo" href="#">Harish N.</a>
+    </div>
 
-     <!-- PRE LOADER -->
-     <section class="preloader">
-          <div class="spinner">
+    <nav class="desktop-nav">
+      <a class="nav-item active" href="#">Home</a>
+      <a class="nav-item" href="#">Service</a>
+      <a class="nav-item" href="#">Projects</a>
+      <a class="nav-item" href="#">About</a>
+      <a class="nav-item" href="#">Contacts</a>
+    </nav>
 
-               <span class="spinner-rotate"></span>
-               
-          </div>
-     </section>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
 
+    <nav class="menu" id="mobileMenu">
+      <a class="menu-item active" href="#">Home</a>
+      <a class="menu-item" href="#">Service</a>
+      <a class="menu-item" href="#">Projects</a>
+      <a class="menu-item" href="#">About</a>
+      <a class="menu-item" href="#">Contacts</a>
+    </nav>
+  </header>
 
-     <!-- MENU -->
-     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
-          <div class="container">
+  <section id="hero" class="hero">
+    <div class="hero-left">
+      <div class="content">
+        <h1>Hi, I'm Harish N</h1>
+        <h3 class="typed-text">Creative Web Designer</h3>
+        <p class="typed-text-2"></p>
+        <p>
+          I’m Harish N, a creative web designer passionate about building innovative digital experiences.
+          With a focus on clean design, intuitive user experiences, and the latest web technologies, I help brands
+          transform their online presence.
+        </p>
+        <div class="cta">
+          <button class="cta-1">Hire Me</button>
+          <button class="cta-2">Contact Me</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right"></div>
+  </section>
 
-               <div class="navbar-header">
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                    </button>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
 
-                    <!-- lOGO TEXT HERE -->
-                    <a href="index.html" class="navbar-brand">Soft Landing</a>
-               </div>
+    // Close the menu if the user clicks outside the menu
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+        menu.classList.remove('active');
+      }
+    });
 
-               <!-- MENU LINKS -->
-               <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                         <li><a href="#home" class="smoothScroll">Home</a></li>
-                         <li><a href="#feature" class="smoothScroll">Features</a></li>
-                         <li><a href="#about" class="smoothScroll">About us</a></li>
-                         <li><a href="#pricing" class="smoothScroll">Pricing</a></li>
-                         <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                         <li><a href="#">Say hello - <span>info@soft.co</span></a></li>
-                    </ul>
-               </div>
+    // Auto typing effect for DevOps Engg and Cloud Engg
+    document.addEventListener('DOMContentLoaded', function() {
+  const typedTextElement2 = document.querySelector('.typed-text-2');
+  const textToType = ['DevOps Engg', 'Cloud Engg'];
 
-          </div>
-     </section>
+  let currentTextIndex = 0;
+  let textIndex = 0;
+  let typingSpeed = 100;
+  let erasingSpeed = 50;
+  let newTextDelay = 2000;
+  let currentText = '';
 
+  function typeText() {
+    if (textIndex < textToType[currentTextIndex].length) {
+      currentText += textToType[currentTextIndex].charAt(textIndex);
+      typedTextElement2.textContent = currentText;
+      textIndex++;
+      setTimeout(typeText, typingSpeed);
+    } else {
+      setTimeout(eraseText, newTextDelay);
+    }
+  }
 
-     <!-- FEATURE -->
-     <section id="home" data-stellar-background-ratio="0.5">
-          <div class="overlay"></div>
-          <div class="container">
-               <div class="row">
+  function eraseText() {
+    if (textIndex > 0) {
+      currentText = currentText.substring(0, currentText.length - 1);
+      typedTextElement2.textContent = currentText;
+      textIndex--;
+      setTimeout(eraseText, erasingSpeed);
+    } else {
+      currentTextIndex = (currentTextIndex + 1) % textToType.length;
+      setTimeout(typeText, typingSpeed);
+    }
+  }
 
-                    <div class="col-md-offset-3 col-md-6 col-sm-12">
-                         <div class="home-info">
-                              <h3>professional landing page</h3>
-                              <h1>We help you manage your website successfully!</h1>
-                              <form action="" method="get" class="online-form">
-                                   <input type="email" name="email" class="form-control" placeholder="Enter your email" required="">
-                                   <button type="submit" class="form-control">Get started</button>
-                              </form>
-                         </div>
-                    </div>
+  typeText();
+});
 
-               </div>
-          </div>
-     </section>
-
-
-     <!-- FEATURE -->
-     <section id="feature" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-12 col-sm-12">
-                         <div class="section-title">
-                              <h1>What you get</h1>
-                         </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                         <ul class="nav nav-tabs" role="tablist">
-                              <li class="active"><a href="#tab01" aria-controls="tab01" role="tab" data-toggle="tab">Responsive</a></li>
-
-                              <li><a href="#tab02" aria-controls="tab02" role="tab" data-toggle="tab">Mobile</a></li>
-
-                              <li><a href="#tab03" aria-controls="tab03" role="tab" data-toggle="tab">Support</a></li>
-                         </ul>
-
-                         <div class="tab-content">
-                              <div class="tab-pane active" id="tab01" role="tabpanel">
-                                   <div class="tab-pane-item">
-                                        <h2>Minimal Design</h2>
-                                        <p>Nam feugiat a ante sollicitudin luctus. Quisque eget placerat massa. Ut quis ligula ornare, pellentesque velit eget, vestibulum est. Donec pretium tristique elit eget sodales. Pellentesque posuere.</p>
-                                   </div>
-                                   <div class="tab-pane-item">
-                                        <h2>Easy to use</h2>
-                                        <p>Aliquam massa massa, consectetur non mattis fringilla, sodales ac turpis. Morbi ac felis sagittis, faucibus mauris vitae, placerat mauris.</p>
-                                   </div>
-                              </div>
-
-
-                              <div class="tab-pane" id="tab02" role="tabpanel">
-                                   <div class="tab-pane-item">
-                                        <h2>Compatible Browsers</h2>
-                                        <p>Nam maximus elit a metus luctus, a faucibus magna mattis. Ut malesuada viverra iaculis. Nunc euismod sit amet neque a tincidunt.</p>
-                                   </div>
-                                   <div class="tab-pane-item">
-                                        <h2>User Friendly</h2>
-                                        <p>Maecenas maximus velit lorem, quis pharetra turpis fringilla id. Vestibulum tempor facilisis efficitur. Sed nec nisi sit amet nibh pellentesque elementum.</p>
-                                   </div>
-                                   <div class="tab-pane-item">
-                                        <h2>HTML5 & CSS3</h2>
-                                        <p>In viverra ipsum ornare sapien rhoncus ullamcorper. Vivamus vitae risus ac mi vehicula sagittis. Nulla dictum magna sit amet pharetra aliquam.</p>
-                                   </div>
-                              </div>
-
-                              <div class="tab-pane" id="tab03" role="tabpanel">
-                                   <div class="tab-pane-item">
-                                        <h2>Quick Support</h2>
-                                        <p>Mauris rutrum est at fringilla pulvinar. Nam ligula urna, lobortis non scelerisque vel, molestie eu massa. Nullam mattis elit at tortor accumsan.</p>
-                                   </div>
-                                   <div class="tab-pane-item">
-                                        <h2>Managed Stuffs</h2>
-                                        <p>Quisque ullamcorper sem quis sapien cursus efficitur. Sed id sodales ipsum. Morbi eleifend tempus erat sit amet vehicula. Nulla at posuere tellus, non mattis erat. Nulla id massa gravida.</p>
-                                   </div>
-                              </div>
-                         </div>
-
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                         <div class="feature-image">
-                              <img src="images/feature-mockup.png" class="img-responsive" alt="Thin Laptop">                             
-                         </div>
-                    </div>
-
-               </div>
-          </div>
-     </section>
-
-
-     <!-- ABOUT -->
-     <section id="about" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-offset-3 col-md-6 col-sm-12">
-                         <div class="section-title">
-                              <h1>Professional Team for you</h1>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                         <div class="team-thumb">
-                              <img src="images/team-image1.jpg" class="img-responsive" alt="Andrew Orange">
-                              <div class="team-info team-thumb-up">
-                                   <h2>Andrew Orange</h2>
-                                   <small>Art Director</small>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</p>
-                              </div>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                         <div class="team-thumb">
-                              <div class="team-info team-thumb-down">
-                                   <h2>Catherine Soft</h2>
-                                   <small>Senior Manager</small>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</p>
-                              </div>
-                              <img src="images/team-image2.jpg" class="img-responsive" alt="Catherine Soft">
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                         <div class="team-thumb">
-                              <img src="images/team-image3.jpg" class="img-responsive" alt="Jack Wilson">
-                              <div class="team-info team-thumb-up">
-                                   <h2>Jack Wilson</h2>
-                                   <small>CEO / Founder</small>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</p>
-                              </div>
-                         </div>
-                    </div>
-                    
-               </div>
-          </div>
-     </section>
-
-
-     <!-- TESTIMONIAL -->
-     <section id="testimonial" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-6 col-sm-12">
-                         <div class="testimonial-image"></div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12">
-                         <div class="testimonial-info">
-                              
-                              <div class="section-title">
-                                   <h1>What People Say</h1>
-                              </div>
-
-                              <div class="owl-carousel owl-theme">
-                                   <div class="item">
-                                        <h3>Vestibulum tempor facilisis efficitur. Sed nec nisi sit amet nibh pellentesque elementum. In viverra ipsum ornare sapien rhoncus ullamcorper.</h3>
-                                        <div class="testimonial-item">
-                                             <img src="images/tst-image1.jpg" class="img-responsive" alt="Michael">
-                                             <h4>Michael</h4>
-                                        </div>
-                                   </div>
-
-                                   <div class="item">
-                                        <h3>Donec pretium tristique elit eget sodales. Pellentesque posuere, nunc id interdum venenatis, leo odio cursus sapien, ac malesuada nisl libero eget urna.</h3>
-                                        <div class="testimonial-item">
-                                             <img src="images/tst-image2.jpg" class="img-responsive" alt="Sofia">
-                                             <h4>Sofia</h4>
-                                        </div>
-                                   </div>
-
-                                   <div class="item">
-                                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</h3>
-                                        <div class="testimonial-item">
-                                             <img src="images/tst-image3.jpg" class="img-responsive" alt="Monica">
-                                             <h4>Monica</h4>
-                                        </div>
-                                   </div>
-                              </div>
-
-                         </div>
-                    </div>
-                    
-               </div>
-          </div>
-     </section>
-
-
-     <!-- PRICING -->
-     <section id="pricing" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-12 col-sm-12">
-                         <div class="section-title">
-                              <h1>Choose any plan</h1>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <div class="pricing-thumb">
-                             <div class="pricing-title">
-                                  <h2>Student</h2>
-                             </div>
-                             <div class="pricing-info">
-                                   <p>20 Responsive Designs</p>
-                                   <p>10 Dashboards</p>
-                                   <p>1 TB Storage</p>
-                                   <p>6 TB Bandwidth</p>
-                                   <p>24-hour Support</p>
-                             </div>
-                             <div class="pricing-bottom">
-                                   <span class="pricing-dollar">$200/mo</span>
-                                   <a href="#" class="section-btn pricing-btn">Register now</a>
-                             </div>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <div class="pricing-thumb">
-                             <div class="pricing-title">
-                                  <h2>Business</h2>
-                             </div>
-                             <div class="pricing-info">
-                                   <p>50 Responsive Designs</p>
-                                   <p>30 Dashboards</p>
-                                   <p>2 TB Storage</p>
-                                   <p>12 TB Bandwidth</p>
-                                   <p>15-minute Support</p>
-                             </div>
-                             <div class="pricing-bottom">
-                                   <span class="pricing-dollar">$350/mo</span>
-                                   <a href="#" class="section-btn pricing-btn">Register now</a>
-                             </div>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <div class="pricing-thumb">
-                             <div class="pricing-title">
-                                  <h2>Professional</h2>
-                             </div>
-                             <div class="pricing-info">
-                                   <p>100 Responsive Designs</p>
-                                   <p>60 Dashboards</p>
-                                   <p>5 TB Storage</p>
-                                   <p>25 TB Bandwidth</p>
-                                   <p>1-minute Support</p>
-                             </div>
-                             <div class="pricing-bottom">
-                                   <span class="pricing-dollar">$550/mo</span>
-                                   <a href="#" class="section-btn pricing-btn">Register now</a>
-                             </div>
-                         </div>
-                    </div>
-                    
-               </div>
-          </div>
-     </section>   
-
-
-     <!-- CONTACT -->
-     <section id="contact" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-offset-1 col-md-10 col-sm-12">
-                         <form id="contact-form" role="form" action="" method="post">
-                              <div class="section-title">
-                                   <h1>Say hello to us</h1>
-                              </div>
-
-                              <div class="col-md-4 col-sm-4">
-                                   <input type="text" class="form-control" placeholder="Full name" name="name" required="">
-                              </div>
-                              <div class="col-md-4 col-sm-4">
-                                   <input type="email" class="form-control" placeholder="Email address" name="email" required="">
-                              </div>
-                              <div class="col-md-4 col-sm-4">
-                                   <input type="submit" class="form-control" name="send message" value="Send Message">
-                              </div>
-                              <div class="col-md-12 col-sm-12">
-                                   <textarea class="form-control" rows="8" placeholder="Your message" name="message" required=""></textarea>
-                              </div>
-                         </form>
-                    </div>
-
-               </div>
-          </div>
-     </section>       
-
-
-     <!-- FOOTER -->
-     <footer id="footer" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="copyright-text col-md-12 col-sm-12">
-                         <div class="col-md-6 col-sm-6">
-                              <p>Copyright &copy; 2018 Company Name - Design:
-                				<a rel="nofollow" href="http://tooplate.com">Tooplate</a></p>
-                         </div>
-
-                         <div class="col-md-6 col-sm-6">
-                              <ul class="social-icon">
-                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                   <li><a href="#" class="fa fa-twitter"></a></li>
-                                   <li><a href="#" class="fa fa-instagram"></a></li>
-                              </ul>
-                         </div>
-                    </div>
-
-               </div>
-          </div>
-     </footer>
-
-
-     <!-- SCRIPTS -->
-     <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/jquery.stellar.min.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/smoothscroll.js"></script>
-     <script src="js/custom.js"></script>
-
-</body>
-</html>
+</script> </body> </html> 
