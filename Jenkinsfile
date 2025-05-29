@@ -35,6 +35,14 @@ pipeline {
             }
         }
 
+        stage('Clean Up Dangling Images') {
+    steps {
+        script {
+            sh "docker image prune -f"
+        }
+    }
+}
+
         stage('Run New Container') {
             steps {
                 script {
